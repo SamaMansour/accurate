@@ -1,0 +1,22 @@
+<link   type="text/x-scss" href="{% static '../static/scss/signup.scss' %}" rel="stylesheet" media="screen">
+<form action="#" method="post">
+{% csrf_token %}
+  <h2>Add Medicine</h2>
+		<p>
+			<label for="name" class="floatLabel">Name</label>
+			<input id="username" name="username" type="text">
+		</p>
+		<p>
+			<label for="dosage" class="floatLabel">Dosage</label>
+			<input id="dosage" name="dosage" type="text">
+		
+		</p>
+		<p>
+			<label for="frequency" class="floatLabel">Frequency</label>
+			<input id="frequency" name="frequency" type="text">
+		
+		</p>
+		<p>
+			<input type="submit" value="Add to my list" id="submit">
+		</p>
+	</form>
