@@ -1,21 +1,18 @@
-<!-- CSS CUSTOM -->
-{% load static %}
-<link   type="text/x-scss" href="{% static '../static/scss/signup.scss' %}" rel="stylesheet" media="screen">
-<form action="#" method="post">
-{% csrf_token %}
-{form}
-  <h2>Login</h2>
-		<p>
-			<label for="Username" class="floatLabel">Username</label>
-			<input id="Username" name="Username" type="text">
-		</p>
-		<p>
-			<label for="password" class="floatLabel">Password</label>
-			<input id="password" name="password" type="password">
-		
-		</p>
-	
-		<p>
-			<input type="submit" value="Login" id="submit">
-		</p>
-	</form>
+{% extends "main/header.html" %}
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+<!--Login--> 
+<div class="container py-5">
+  <h1>Login</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ login_form|crispy }}
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+  <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+</div>
+
+{% endblock %}
