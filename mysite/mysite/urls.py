@@ -15,18 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import path
+
 from pages.views import (
     
     MedicineCreateView,
     
 )
 from pages import views
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 
 
 
-from pages.views import home_view
-from user.views import register_request , login_request, logout_request, medicine_create_view
+from pages.views import home_view, MedicineCreateView
+from user.views import register_request , login_request, logout_request
 from user import views
 from django.contrib.auth import views as auth_views
 
@@ -35,11 +42,13 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ('', home_view),
+    path('create/', MedicineCreateView.as_view(), name='create-medicine'),
     path("register", views.register_request, name="register"),
+    path('accounts/profile/', views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path("logout", auth_views.LogoutView.as_view(template_name ='users\logout.html'), name="logout"),
 
-    path('medicine/new/', MedicineCreateView.as_view(), name='medicine-create'),
+    #path('medicine/new/', MedicineCreateView.as_view(), name='medicine-form'),
   
    
 ]

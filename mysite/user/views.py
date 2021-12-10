@@ -7,6 +7,7 @@ from django.contrib.auth import  authenticate
 from django.contrib.auth.forms import AuthenticationForm 
 from django.contrib import messages
 from .models import Medicine
+from django.contrib.auth.decorators import login_required
 
 
 #signup 
@@ -68,4 +69,6 @@ def medicine_create_view (request):
                    )
 
 
-    
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
