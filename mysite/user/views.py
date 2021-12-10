@@ -1,82 +1,15 @@
 
-# #def sign_up_form (request, *args, **kwargs):
-# #     if request.method == 'POST':
-# #         form = NewUserForm (request.POST)
-# #         if form.is_valid():
-# #             user = form .save()
-# #             login (request, user)
-# #             messages.success (request, "User saved successfully")
-# #             return redirect ("main:homepage")
-# #             messages.error(request, "unsuccessful registration , Invalid registration")
-# #             form = NewUserForm(request.POST)
-# # return render(request =request, template_name = "users/signup.html", context = {"register_form":form })   
-    
-
-
-# from django.shortcuts import render, redirect
-
-# from django.contrib.auth import (
-#     authenticate,
-#     get_user_model,
-#     login,
-#     logout
-# )
-
-# from .forms import UserLoginForm, UserRegisterForm
-
-
-# def login_view(request):
-#     next = request.GET.get('next')
-#     form = UserLoginForm(request.POST or None)
-#     if form.is_valid():
-#         username = form.cleaned_data.get('username')
-#         password = form.cleaned_data.get('password')
-#         user = authenticate(username=username, password=password)
-#         login(request, user)
-#         if next:
-#             return redirect(next)
-#         return redirect('/')
-
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, "users/login.html", context)
-
-
-# def register_view(request):
-#     next = request.GET.get('next')
-#     form = UserRegisterForm(request.POST or None)
-#     if form.is_valid():
-#         user = form.save(commit=False)
-#         password = form.cleaned_data.get('password')
-#         user.set_password(password)
-#         user.save()
-#         new_user = authenticate(username=user.username, password=password)
-#         login(request, new_user)
-#         if next:
-#             return redirect(next)
-#         return redirect('/')
-
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, "users/signup.html", context)
-
-
-# def logout_view(request):
-#     logout(request)
-#     return redirect('/')
-
-
-
-
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm
-from django.contrib.auth import login
+from .forms import NewUserForm, RawMedicineForm
+from django.contrib.auth import login, logout
 from django.contrib import messages
-from django.contrib.auth import login, authenticate 
+from django.contrib.auth import  authenticate 
 from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib import messages
+from .models import Medicine
 
+
+#signup 
 def register_request(request):
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
@@ -89,3 +22,50 @@ def register_request(request):
 	form = NewUserForm()
 	return render (request=request, template_name="users/signup.html", context={"register_form":form})
 
+
+
+
+#login
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}")
+                return redirect('register')
+            else:
+                messages.error(request, "Invalid username or password.")
+        else:
+            messages.error(request, "Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request = request,
+                    template_name = "users/login.html",
+                    context={"form":form})
+
+
+#logout
+def logout_request(request):
+    logout(request)
+    return redirect('/')
+
+
+# create a medicine
+def medicine_create_view (request):
+    my_form:RawMedicineForm(request.GET)
+    if request.method == 'POST':
+        my_form = RawMedicineForm(request.POST)
+        if my_form.is_valid():
+            print (my_form.cleaned_data)
+            Product.objects.create(title = my_new_title)
+        else:
+            print(my_form.errors)    
+    return render(request = request,
+                    template_name = "medicine_create.html"
+                   )
+
+
+    

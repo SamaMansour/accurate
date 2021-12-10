@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'sass_processor',
+    'sass_processor',
+    'crispy_forms',
+    'bootstrap',
 
 
     'user'
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'boot')
 ]
 
 

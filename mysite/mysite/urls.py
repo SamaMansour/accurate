@@ -19,12 +19,19 @@ from django.urls import path
 
 
 from pages.views import home_view
+from user.views import register_request , login_request, logout_request, medicine_create_view
 from user import views
+from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path ('', home_view),
     path("register", views.register_request, name="register"),
+    path("login", auth_views.LoginView.as_view(template_name ='users\login.html'), name="login"),
+    path("logout", auth_views.LogoutView.as_view(template_name ='users\logout.html'), name="logout"),
+    path ('create/', medicine_create_view),
   
    
 ]
