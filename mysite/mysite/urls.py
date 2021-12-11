@@ -32,7 +32,7 @@ from django.views.generic import (
 
 
 
-from pages.views import home_view, MedicineCreateView
+from pages.views import home_view, MedicineCreateView, medicine_detail_view, MedicineUpdateView, MedicineDeleteView
 from user.views import register_request , login_request, logout_request
 from user import views
 from django.contrib.auth import views as auth_views
@@ -47,6 +47,9 @@ urlpatterns = [
     path('accounts/profile/', views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path("logout", auth_views.LogoutView.as_view(template_name ='users\logout.html'), name="logout"),
+    path ('med/', medicine_detail_view),
+    path('med/<int:pk>/update/', MedicineUpdateView.as_view(), name='post-update'),
+    path('med/<int:pk>/delete/', MedicineDeleteView.as_view(), name='post-delete'),
 
     #path('medicine/new/', MedicineCreateView.as_view(), name='medicine-form'),
   
