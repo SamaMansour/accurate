@@ -1,7 +1,23 @@
+<style>
+.c-card{
+  display: inline-block;
+  width: 100%;
+  max-width: 1050px;
+  margin: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+
 {% block content %}
+<div  class="c-card">
 <h1>details price </h1>
 <p>{{object.name}}</p>
 <p>{{object.dosage}}</p>
 <p>{{object.frequency}}</p>
-
+</div>
 {% endblock %}

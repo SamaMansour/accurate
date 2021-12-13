@@ -33,14 +33,18 @@ class MedicineCreateView(LoginRequiredMixin, CreateView):
         if self.request.user == post.author:
             return True
         return False
-def medicine_detail_view (request):
-       
-    obj = Medicine.objects.get(id =1)
-    context = {
-        'object' : obj 
-    }
-    return render(request, "pages/medicine_detail.html" , context)
 
+
+
+class MedicineListView(ListView):
+    model = Medicine
+    template_name = 'pages/medicine_detail.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'posts'
+ 
+
+
+class MedicineDetailView(DetailView):
+    model = Medicine
 
 class MedicineUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Medicine
