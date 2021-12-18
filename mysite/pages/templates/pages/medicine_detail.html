@@ -13,11 +13,21 @@
 
 </style>
 
+
 {% block content %}
-<div  class="c-card">
-<h1>details price </h1>
-<p>{{object.name}}</p>
-<p>{{object.dosage}}</p>
-<p>{{object.frequency}}</p>
-</div>
-{% endblock %}
+  <article class="media content-section">
+    
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.name }}</a>
+      
+          <div>
+            
+          </div>
+       
+      </div>
+      <h2 class="article-title">{{ object.dosage }}</h2>
+      <p class="article-content">{{ object.frequency }}</p>
+    </div>
+  </article>
+{% endblock content %}

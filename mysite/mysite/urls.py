@@ -36,7 +36,7 @@ from django.views.generic import (
 
 
 
-from pages.views import home_view, MedicineCreateView, MedicineDetailView, MedicineUpdateView, MedicineDeleteView,MedicineListView
+from pages.views import home_view, MedicineCreateView, MedicineDetailView, MedicineUpdateView, MedicineDeleteView,MedicineListView,contact
 from user.views import register_request , login_request, logout_request
 from user import views
 from django.contrib.auth import views as auth_views
@@ -46,15 +46,16 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ('', home_view),
+    path ('contact/', contact),
     path('create/', MedicineCreateView.as_view(), name='create-medicine'),
     path("register", views.register_request, name="register"),
     path('accounts/profile/', views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path("logout", auth_views.LogoutView.as_view(template_name ='users\logout.html'), name="logout"),
     path('meds/', MedicineListView.as_view(), name='post-vews'),
-    path('med/<int:pk>/update/', MedicineUpdateView.as_view(), name='post-update'),
-     path('med/<int:pk>/', MedicineDetailView.as_view(), name='post-detail'),
-    path('med/<int:pk>/delete/', MedicineDeleteView.as_view(), name='post-delete'),
+    path('med/<int:pk>/update/', MedicineUpdateView.as_view(), name='med-update'),
+     path('med/<int:pk>/', MedicineDetailView.as_view(), name='med-detail'),
+    path('med/<int:pk>/delete/', MedicineDeleteView.as_view(), name='med-delete'),
 
     #path('medicine/new/', MedicineCreateView.as_view(), name='medicine-form'),
   
