@@ -40,10 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sass_processor',
     'crispy_forms',
-   
     'pages',
-
-
     'user'
 ]
 

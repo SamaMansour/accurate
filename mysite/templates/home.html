@@ -1,75 +1,107 @@
 {% include "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
+<style>
+     .landing-section {
+          min-height: 100vh;
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        } 
+      
+      
+        .landing-main { 
+          background: url(https://media.istockphoto.com/photos/heart-shaped-rope-picture-id184915606?k=20&m=184915606&s=612x612&w=0&h=IRquqwu_5gmTbBuSYp1CbOAjIOexx5XxeqiY1_qD3OA=) no-repeat center center fixed; 
+          background-size: cover;
+        }
+      
+      
+        .landing-section-content {
+          padding: 2rem;
+          background: rgba(0,0,0,0.5);
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          color: #ccc;
+        }
+        
+        .brand {
+          margin: 0;
+          color: #EF4444;
+        }
+        
+        .brand-text {
+          color: #EF4444;
+        }
+      
+      
+        .header {
+          width: 100vw;
+          display: flex;
+          justify-content: flex-end;
+          top: 0;
+          left: 0;
+          position: absolute;
+        
+          background: rgba(0,0,0,0.5);
+        }
+        
+        .header-link {
+          margin: 1rem;
+          border-bottom: 3px solid #EF4444;
+          font-size: 1.2rem;
+          color: #222;
+          text-decoration: none;
+          color: #ccc;
+        }
+        
+        .header-text {
+          margin: 1rem;
+          font-size: 1.2rem;
+          color: #ccc;
+        }
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</style>
+<title>Accurate :</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'pages/style.css' %}">
 
-    
-
-    {% if title %}
-        <title>Accurate {{ title }}</title>
-    {% else %}
-        <title>Accurate</title>
-    {% endif %}
-</head>
-<body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" ">Accurate </a>
-           
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            
-          </button>
-          
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
-              <a class="nav-item nav-link" href="#"">About</a>
-           
-            </div>
-            
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="login">Login</a>
-              <a class="nav-item nav-link" href="register">Register</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
-          {% block content %}{% endblock %}
-        </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Create Users</li>
-                <li class="list-group-item list-group-item-light">Add Medicines</li>
-                <li class="list-group-item list-group-item-light">Update info</li>
-                <li class="list-group-item list-group-item-light">etc</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>          
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+<header class="header">
+  
+  <a href="login" class="header-link">Login</a>
+  <a href="register" class="header-link">Signup</a>
+</header>
+<section class="landing-section landing-main">
+  <div class="landing-section-content">
+    <h1 class="brand">Accurate</h1>
+    <h2>
+      <span class="brand-text"> Med</span>icine
+      <span class="brand-text">Dose</span>tracker
+    </h2>
+    <p class="landing-main-text">
+      Got tired of missing the time for your medicine
+      <br>
+      You have found a perfect solution...
+    </p>
+  </div>
+</section>
+<section class="landing-section langing-features">
+  <section class="landing-feature feature-music-services">
+    <h2>Connect to your favorite <span class="brand-text">ser</span>vices</h2>
+    <ul>
+      <li class="brand-text">Gmail</li>
+      
+    </ul>
+  </section>
+  <section class="landing-feature feature-notifications">
+    <h2>Get <span class="brand-text">n</span>otifications from us annually</h2>
+    <ul>
+      <li class="brand-text">Email</li>
+      
+    </ul>
+  </section>
+</section>
