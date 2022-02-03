@@ -10,22 +10,43 @@
 
 </head>
 
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-8">Join Accurate Today</legend>
-                {{ register_form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up</button>
-            </div>
-			<div class="border-top pt-3">
-            <small class="text-muted">
-                Already Have An Account? <a class="ml-2" href="login">Sign In</a>
-            </small>
-        </div>
-        </form>
-        
-    </div>
+
+
+<div class="container">
+	<div class="row text-center mb-4">
+		<div class="col-md-12">
+		   
+		</div>
+	</div>
+	<div class="row text-center">
+	    <div class="col-md-6 offset-md-3">
+	        <div class="card ">
+	            <div class="card-body">
+	                
+	                <div class="login-title">
+	                    <h4>Log In</h4>
+	                </div>
+	                <div class="login-form mt-12">
+	                    <form method="POST" >
+                        {% csrf_token %}
+                        <fieldset class="form-group ">
+                            {{ register_form|crispy }}
+                            
+                        </fieldset>  
+                        
+                        <div class="form-row">
+                            <button type="submit" class="btn btn-danger btn-block">Signup</button>
+                        </div>
+                    </form>
+	                </div>
+	                <div class="logi-forgot text-right mt-2">
+	                    <a href="{% url 'register' %} >Sign Up Now </a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+    
 {% endblock content %}
