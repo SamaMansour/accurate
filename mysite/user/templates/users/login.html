@@ -16,39 +16,36 @@
 
 
 <div class="container">
-	<div class="row text-center mb-4">
+	<div class ="border p-3 mt-4" >
 		<div class="col-md-12">
 		   
 		</div>
-	</div>
-	<div class="row text-center">
-	    <div class="col-md-6 offset-md-3">
-	        <div class="card ">
-	            <div class="card-body">
+	
+	
 	                
 	                <div class="login-title">
-	                    <h4>Log In</h4>
+	                    <h4 class="text-primary pl-3">Log In</h4>
 	                </div>
-	                <div class="login-form mt-12">
-	                    <form method="POST" >
+	                <div class="login-form md-12">
+	                    <form method="POST"  >
                         {% csrf_token %}
-                        <fieldset class="form-group ">
+                        <fieldset class="form-group mb-3 ">
                             
                             {{ form|crispy }}
                         </fieldset>  
                         
                         <div class="form-row">
-                            <button type="submit" class="btn btn-danger btn-block">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
 	                </div>
 	                <div class="logi-forgot text-right mt-2">
-	                    <a href="{% url 'register' %} >Sign Up Now </a>
+	                    <a href="{% url 'register' %}" >Sign Up Now </a>
 	                </div>
-	            </div>
-	        </div>
-	    </div>
+	       
+	
 	</div>
 </div>
-    
+</div>
+
 {% endblock content %}
