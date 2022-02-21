@@ -5,48 +5,98 @@
 
 
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'pages/signup.scss' %}">
-
-</head>
-
-
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+	  <a class="navbar-brand" href="/">Accurate</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+		  <li class="nav-item">
+			<a class="nav-link" href="">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="">Doses</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="">Contact</a>
+		  </li>
+		</ul>
+	  </div>
+	
+	  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+		<ul class="navbar-nav mr-auto"> 
+		</ul>
+	  </div>
+	  <div class="mx-auto order-0">
+		<a class="navbar-brand" href="/" style="font-size:30px">
+		 
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  </div>
+	  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+		<ul class="navbar-nav ml-auto">
+		  {% if user.is_authenticated %}
+			<li class="nav-item">
+			  <a class="nav-link" href="/">Logout</a>
+			</li>
+			<li class="nav-item">
+			  <a class="btn btn-outline-primary" href="/user">{{user.username|title}}</a>
+			</li>
+		  {% else %}
+			<li class="nav-item">
+			  <a class="nav-link" href="/login">Login</a>
+			</li>
+			<li class="nav-item">
+			   <a class="btn btn-outline-primary" href="/register">Register</a>
+			</li>
+		  {% endif %}
+		</ul>
+	  </div>
+	</nav>
+	
 
 <div class="container">
-	<div class="row text-center mb-4">
+	<div class ="border p-3 mt-4" >
 		<div class="col-md-12">
 		   
 		</div>
-	</div>
-	<div class="row text-center">
-	    <div class="col-md-6 offset-md-3">
-	        <div class="card ">
-	            <div class="card-body">
+	
+	
 	                
 	                <div class="login-title">
-	                    <h4>Log In</h4>
+	                    <h4 class="text-primary pl-3">Signup</h4>
 	                </div>
-	                <div class="login-form mt-12">
-	                    <form method="POST" >
+	                <div class="login-form md-12">
+	                    <form method="POST"  >
                         {% csrf_token %}
-                        <fieldset class="form-group ">
-                            {{ register_form|crispy }}
+                        <fieldset class="form-group mb-3 ">
                             
+                            {{ register_form|crispy }}
                         </fieldset>  
                         
                         <div class="form-row">
-                            <button type="submit" class="btn btn-danger btn-block">Signup</button>
+                            <button type="submit" class="btn btn-primary">Signup</button>
                         </div>
                     </form>
 	                </div>
 	                <div class="logi-forgot text-right mt-2">
-	                    <a href="{% url 'register' %} >Sign Up Now </a>
+	                  
 	                </div>
-	            </div>
-	        </div>
-	    </div>
+	       
+	
 	</div>
 </div>
+</div>
+
+
 
     
 {% endblock content %}
