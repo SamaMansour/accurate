@@ -55,8 +55,8 @@ class MedicineCreateView(LoginRequiredMixin, CreateView):
 
 class MedicineListView(ListView):
     model = Medicine
-    template_name = 'pages/medicine_detail.html'  # <app>/<model>_<viewtype>.html
-    context_object_name = 'posts'
+    template_name = 'medcine_view'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'Medicines'
  
 
 
