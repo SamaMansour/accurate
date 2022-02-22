@@ -6,8 +6,8 @@ from django.urls import reverse
 
 class Medicine(models.Model):
     name = models.CharField(max_length=100)
-    dosage = models.TextField()
-    frequency = models.TextField()
+    dosage = models.CharField(max_length=100)
+    frequency = models.CharField(max_length=2)
      
     def __str__(self):
             return self.name
