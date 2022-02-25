@@ -53,9 +53,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path("logout", auth_views.LogoutView.as_view(template_name ='users\logout.html'), name="logout"),
     path('meds/', MedicineListView.as_view(template_name ='medicine_view.html'),name ="med_view" ),
-    path('med/<int:pk>/update/', MedicineUpdateView.as_view(), name='med-update'),
-     path('med/<int:pk>/', MedicineDetailView.as_view(), name='med-detail'),
-    path('med/<int:pk>/delete/', MedicineDeleteView.as_view(), name='med-delete'),
+    path('meds/<int:pk>/update/', MedicineUpdateView.as_view(), name='med-update'),
+    path('<pk>/delete/', MedicineDeleteView.as_view()),
 
     #path('medicine/new/', MedicineCreateView.as_view(), name='medicine-form'),
   

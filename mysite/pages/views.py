@@ -65,7 +65,7 @@ class MedicineDetailView(DetailView):
 
 class MedicineUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Medicine
-    fields = ['name', 'dosage', 'frequency']
+    fields = ['name', 'dosage', 'frequancy']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -80,10 +80,5 @@ class MedicineDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Medicine
     success_url = '/'
 
-    def test_func(self):
-        med = self.get_object()
-        if self.request.user == med.name:
-            return True
-        return False
-
+   
 

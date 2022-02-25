@@ -74,16 +74,16 @@
 	                <div class="login-title">
 	                    <h4 class="text-primary pl-3">Doses</h4>
 	                </div>
-	                <div class="login-form md-12">
+	                <div class="login-form md-12 row">
 	                {% for medicine in Medicines %}
-                    <div class="card row col-md-12" style="width: 18rem; content:justify-content float: left">
+                    <div class="card col" style="width: 18rem; margin-right:10px;">
                     <!--<img class="card-img-top" src="{{ product.image }}" alt="Card image cap">-->
                     <div class="card-body">
                     <h5 class="card-title">{{ medicine.name }}</h5>
                     <p class="card-text">{{ medicine.dosage }}</p>
                     <p class="card-text">Price - {{ medicine.frequancy }}</p>
                     <a href="#" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="/1/delete/" class="btn btn-danger">Delete</a>
                      </div>
                     </div>
                     {% endfor %}

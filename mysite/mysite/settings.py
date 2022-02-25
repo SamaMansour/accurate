@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -146,6 +147,10 @@ EMAIL_HOST_USER = 's.jamansour@gmail.com'
 EMAIL_HOST_PASSWORD = 'Lovethis@4050'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+CRONJOBS = [
+    ('*/5 * * * *', 'test_app.cron.my_scheduled_job')
+]
 
 
 
