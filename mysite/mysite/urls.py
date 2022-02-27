@@ -19,8 +19,6 @@ from django.urls import path
 from pages.views import (
     
     MedicineCreateView,
-    MedicineUpdateView,
-    MedicineDeleteView,
     MedicineDetailView,
     MedicineListView,
     
@@ -36,8 +34,8 @@ from django.views.generic import (
 
 
 
-from pages.views import home_view, MedicineCreateView, MedicineDetailView, MedicineUpdateView, MedicineDeleteView,MedicineListView,contact
-from user.views import register_request , login_request, logout_request
+from pages.views import home_view, MedicineCreateView, MedicineDetailView,MedicineListView,contact
+from user.views import register_request , login_request, logout_request, delete_view
 from user import views
 from django.contrib.auth import views as auth_views
 
@@ -53,8 +51,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path("logout", auth_views.LogoutView.as_view(template_name ='users\logout.html'), name="logout"),
     path('meds/', MedicineListView.as_view(template_name ='medicine_view.html'),name ="med_view" ),
-    path('meds/<int:pk>/update/', MedicineUpdateView.as_view(), name='med-update'),
-    path('<pk>/delete/', MedicineDeleteView.as_view()),
+    #path('meds/<int:pk>/update/', MedicineUpdateView.as_view(), name='med-update'),
+    path('delete/<int:list_id>/', views.delete_view, name='delete')
 
     #path('medicine/new/', MedicineCreateView.as_view(), name='medicine-form'),
   

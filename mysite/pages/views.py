@@ -63,22 +63,6 @@ class MedicineListView(ListView):
 class MedicineDetailView(DetailView):
     model = Medicine
 
-class MedicineUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Medicine
-    fields = ['name', 'dosage', 'frequancy']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def test_func(self):
-        post = self.get_object()
-
-
-
-class MedicineDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = Medicine
-    success_url = '/'
 
    
 
