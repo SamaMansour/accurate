@@ -25,13 +25,7 @@ def contact (request):
         message_email = request.POST['message-email'];
         message = request.POST['message'];
 
-        #send an email 
-        send_mail (
-            message_name,
-            message, 
-            message_email,
-            ['s.jamansour@gmail.com']
-        )
+      
 
         return render(request, "contact.html", {'message_name':message_name})
     else:
